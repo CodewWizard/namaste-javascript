@@ -1,5 +1,5 @@
 console.log("promises");
-
+// we can resolve/reject promise only once
 const cart = ["shoes", "shirt", "t-shirt"];  
 
 createOrder(cart)
@@ -7,6 +7,9 @@ createOrder(cart)
 .then(function(orderId){
     console.log(orderId);
     return orderId;
+})
+.catch(function(err){
+    console.log(err.message)
 })
 .then(function(orderId){
     return proceedToPayment(orderId);
@@ -18,6 +21,9 @@ createOrder(cart)
 .catch(function(err){
     console.log("in catch")
     console.log(err.message);
+})
+.then(function(){
+    console.log("definitely called")
 })
 
 /// Producer
